@@ -1,17 +1,17 @@
 from wordle import Wordle
 
 def main():
-  print("Hello World!")
-  wordle = Wordle("APPLE")
+    print("Hello Worldle!")
+    wordle = Wordle("APPLE")
   
-  while wordle.can_attempt:
-    x = input("Type your guess:")
-    wordle.attempts.append(x)
-    if x == wordle.secret:
-      print("You have guessed the word!")
-      break
-    print("Your guess is incorrect.")
-
+    while wordle.can_attempt:
+      x = input("Type your guess: ")
+      wordle.attempt(x) 
+  
+    if wordle.is_solved:
+      print("You've solved the puzzle.")
+    else:
+      print("You failed to solve the puzzle!")
 
 
 if __name__ == "__main__":
