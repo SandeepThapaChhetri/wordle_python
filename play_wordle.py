@@ -3,6 +3,7 @@ from wordle import Wordle
 def main():
     print("Hello Worldle!")
     wordle = Wordle("APPLE")
+    #The secrect word to be guessed.
   
     while wordle.can_attempt:
       x = input("Type your guess: ")
