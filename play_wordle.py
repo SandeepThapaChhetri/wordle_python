@@ -1,11 +1,13 @@
 from typing import List
-
 from letter_state import LetterState
 from wordle import Wordle
 from colorama import Fore
+import random 
 
 def main():
-    print("Hello Worldle!")
+    
+    word_set = load_word_set("data\wordle_words.txt")
+    secret = random.choice(list(word_set))
     wordle = Wordle("APPLE")
   
     while wordle.can_attempt:
@@ -37,8 +39,15 @@ def display_results(wordle: Wordle):
   for _ in range(wordle.remaining_attempts):
     lines.append(" ".join(["_"] * wordle.WORD_LENGTH))
 
-
   draw_border_around(lines)
+
+def load_word_set(path: str):
+  word_set = set()
+  with open(path, "r") as f:
+    for line in f.readlines():
+      word = line.strip().upper()
+      word_set.add(word)
+  return word_set
 
 def convert_result_to_color(result: List[LetterState]):
   result_with_color = []
