@@ -1,6 +1,4 @@
 # Wordle (Python)
-===============================================================================
-
 
 A terminal-based clone of the popular word-guessing game **Wordle**, built in Python as part of my journey learning the language.
 
