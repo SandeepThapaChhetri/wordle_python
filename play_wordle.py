@@ -6,15 +6,24 @@ import random
 
 def main():
     
-    word_set = load_word_set("data\wordle_words.txt")
+    word_set = load_word_set("data/wordle_words.txt")
+    print("Number of words loaded:", len(word_set))
     secret = random.choice(list(word_set))
-    wordle = Wordle("APPLE")
+    wordle = Wordle(secret)
   
     while wordle.can_attempt:
-      x = input("\nType your guess: ")
+      x = input("\nType your guess: ").strip().upper()
 
       if len(x) != wordle.WORD_LENGTH:
-        print(Fore.RED + f"Word must be {wordle.WORD_LENGTH} characters long!" + Fore.RESET)
+        print(
+          Fore.RED
+            + f"Word must be {wordle.WORD_LENGTH} characters long!" 
+            + Fore.RESET
+        )
+        continue
+      
+      if not x in word_set:
+        print(Fore.RED + f"{x} is not a valid word!" + Fore.RESET)
         continue
 
       wordle.attempt(x) 
@@ -24,6 +33,7 @@ def main():
       print("You've solved the puzzle.")
     else:
       print("You failed to solve the puzzle!")
+      print(f"The secret word was: {wordle.secret}")
 
 def display_results(wordle: Wordle):
   print("\nYour results so far....\n ")
