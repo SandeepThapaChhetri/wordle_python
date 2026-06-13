@@ -38,16 +38,18 @@ You have 5 attempts remaining.
 ```
 
 
-## Project structure
+## Project Structure
 
+```text
 wordle_python/
-├── wordle.py          # Core game logic (Wordle class)
-├── letter_state.py     # Represents the state of a single guessed letter
-├── play_wordle.py       # Entry point - run this to play
+├── wordle.py             # Core game logic (Wordle class)
+├── letter_state.py       # Represents the state of a guessed letter
+├── play_wordle.py        # Entry point - run this file to play the game
 ├── data/
-│   ├── wordle_words.txt  # Word list used for secrets and valid guesses
-│   └── convert_words.py  # Helper script to generate/clean wordle_words.txt
-└── README.md
+│   ├── wordle_words.txt  # Word list for secret words and valid guesses
+│   └── convert_words.py  # Utility script to generate/clean word list
+└── README.md             # Project documentation
+```
 
 ## Getting started
 
@@ -101,7 +103,3 @@ This project was my first real Python project, and helped me practice:
 - [ ] Add a "play again" option without restarting the script
 - [ ] Track and display win/loss statistics
 - [ ] Support different word lengths or difficulty levels
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
